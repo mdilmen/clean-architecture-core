@@ -44,7 +44,8 @@ namespace CleanArchitecture.Persistence
         {
             var connectionString = _configuration.GetConnectionString("CleanArchitectureCore");
 
-            optionsBuilder.UseSqlServer(connectionString);
+            //optionsBuilder.UseSqlServer(connectionString);
+            optionsBuilder.UseInMemoryDatabase("myDb");
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
