@@ -20,6 +20,8 @@ namespace CleanArchitecture.Domain.Sales
         private static readonly DateTime Date = new(2001, 2, 3);
         private const decimal UnitPrice = 1.00m;
         private const int Quantity = 1;
+        private const decimal UnitPrice2 = 3.00m;
+        private const int Quantity2 = 2;
 
 
         [SetUp]
@@ -117,6 +119,17 @@ namespace CleanArchitecture.Domain.Sales
 
             Assert.That(_sale.TotalPrice, 
                 Is.EqualTo(2.00m));
+        }
+        [Test]
+        public void TestSetUnitPriceShouldRecomputeTotalPriceAndSecondTotalPriceIsGreater()
+        {
+            _sale.Quantity = Quantity2;
+
+            _sale.UnitPrice = UnitPrice2;
+
+
+            Assert.That(_sale.TotalPrice,
+                Is.GreaterThan(1.23m));
         }
     }
 }
