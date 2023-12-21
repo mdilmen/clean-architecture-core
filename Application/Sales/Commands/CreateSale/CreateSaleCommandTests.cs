@@ -34,6 +34,7 @@ namespace CleanArchitecture.Application.Sales.Commands.CreateSale
         [SetUp]
         public void SetUp()
         {
+            // Test
             var customer = new Customer
             {
                 Id = CustomerId
